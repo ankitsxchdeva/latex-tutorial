@@ -1,173 +1,46 @@
-%% latex_185_moulds_g.tex
-%%
-%% The following file is a skeleton file that demonstrates how to implement the IEEEtran.cls class 
-%% file in LaTeX. This file is intended for the CMPE185 Technical Writing for Engineers Course in 
-%% which the students must write a tutorial aimed towards novice LaTeX users in the LaTex environment.
-%%
-%% This file is heavily adapted from Michael Shell's bare_adv.tex file made available at 
-%% http://www.ieee.org/conferences_events/conferences/publishing/templates.html
-%%
-%% You will need to rename this file with your information in the following format:
-%% latex_185_last name_ first initial.tex
-%% ---------------------------------------------------------------------------------------------------
-
-% \documentclass{} precedes the preamble and is typically the first command in any .tex document. Every .tex document should include this command as it defines what kind of document you intend on creating. Modifiers in square brackets [] can be added in between the text ''documentclass'' and the curly brackets {} to modify font size, templates, etc. 
-
 \documentclass[12pt,journal,compsoc]{IEEEtran}
-
-%-----PACKAGES-------------------------------------------------------------------------------------
-
-% Packages include extra commands that allow for additional formatting, ranging from Graphics, Math, to Alignment. The command to include packages will always look similar to \usepackage{} where the package name is within the curly brackets {}. Packages are defined in the preamble, i.e., between the \documentclass{} and \begin{document} commands.
-
-% The following link takes you to a list of additional packages that may not be listed here. http://en.wikibooks.org/wiki/LaTeX/Package_Reference
-
-% TO INCLUDE PACKAGES: 
-% - Open the file ''latex_sample_packages.tex'' from the .zip folder.
-% - From this file, COPY the code for the package you want to include and PASTE into your own .tex file.
-% - Uncomment the package you want to include and load, i.e., remove the ''%'' in front of the \usepackage{package_name}.
- 
-
-% Copy package text here:
-
 \usepackage{graphicx}
-% This is an example of how a \usepackage{} command should be included. You will need to include more packages to complete this assignment.
-
-
-
-
-%----- The DOCUMENT Environment-------------------------------------------------------------------
-
-% The \begin{document} and \end{document} commands establish the environment for the text of the document. The \begin{} and \end{} commands are used repeatedly in LaTeX to show where an environment begins and ends. The \end{document} command will be the last line of this .tex file.
-
+\usepackage{hyperref}
 \begin{document}
 
-% The following commands are self explanatory. Insert your title, author and date into each command's curly bracket. You can include the abstract, paper header and paper footer information in this section then conclude the section with the command \maketitle (shown as the last line at the end of this section).
+\title{LaTeX Tutorial}
+\author{Ankit Sachdeva}
 
-\title{Title goes here}
-\author{Your name goes here\\
-		Gerald~Moulds}
-% The double backslash \\ is used here to enter a ''Carriage Return'', or a line break. Note that the tilde ~ in between my name used as a ''Nonbreaking Space''. LaTeX will not break a structure at a ~ so this keeps an author's name from being broken across two lines. Also note that I included my name as an example so make sure to only insert your name in this command.
+\date{\today}		% leaving the brackets empty omits the date
 
-\date{}		% leaving the brackets empty omits the date
-% To input the current date, you can type: \date{\today}
-
-% The paper headers
-\markboth{\LaTeX\ IEEE Template Tutorial}%
+\markboth{\LaTeX\ Tutorial}%
 {Moulds \MakeLowercase{\textit{et al.}}: CMPE185}
-% The only time the second header will appear is for the odd numbered pages
-% after the title page when using the twoside option.
-% 
-% *** Note that you probably will NOT want to include the author's ***
-% *** name in the headers of peer review papers.                   ***
-% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
-% you desire.
 
-% The publisher's ID mark at the bottom of the page is less important with
-% Computer Society journal papers as those publications place the marks
-% outside of the main text columns and, therefore, unlike regular IEEE
-% journals, the available text space is not reduced by their presence.
-% If you want to put a publisher's ID mark on the page you can do it like
-% this:
-\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
-% or like this to get the Computer Society new two part style.
-%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2007 IEEE}%
-%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
-% Remember, if you use this you must call \IEEEpubidadjcol in the second
-% column for its text to clear the IEEEpubid mark (Computer Society jorunal
-% papers don't need this extra clearance.)
-
-
-% use for special paper notices
-%\IEEEspecialpapernotice{(Invited Paper)}
-
-% for Computer Society papers, we must declare the abstract and index terms
-% PRIOR to the title within the \IEEEcompsoctitleabstractindextext IEEEtran
-% command as these need to go into the title area created by \maketitle.
-\IEEEtitleabstractindextext{%
-\begin{abstract}
-%\boldmath
-The abstract goes here.
-\end{abstract}
-% IEEEtran.cls defaults to using nonbold math in the Abstract.
-% This preserves the distinction between vectors and scalars. However,
-% if the journal you are submitting to favors bold math in the abstract,
-% then you can use LaTeX's standard command \boldmath at the very start
-% of the abstract to achieve this. Many IEEE journals frown on math
-% in the abstract anyway. In particular, the Computer Society does
-% not want either math or citations to appear in the abstract.
-
-% Note that keywords are not normally used for peerreview papers.
-\begin{IEEEkeywords}
-CMPE185, \LaTeX\ Tutorial, IEEEtran, journal, \LaTeX, paper, template.
-\end{IEEEkeywords}}
-
+\IEEEpubid{\copyright~2022 Ankit Sachdeva}
 \maketitle
 
-%----- The SECTION Environment -------------------------------------------------------------------
-
-% To create a section, simply type the command \section{} with the name of your section name inserted into the curly brackets {}. The section's body text follows underneath the \section{} command. 
-
 \section{Introduction}
-% Computer Society journal papers do something a tad strange with the very
-% first section heading (almost always called "Introduction"). They place it
-% ABOVE the main text! IEEEtran.cls currently does not do this for you.
-% However, You can achieve this effect by making LaTeX jump through some
-% hoops via something like:
-%
-%\ifCLASSOPTIONcompsoc
-%  \noindent\raisebox{2\baselineskip}[0pt][0pt]%
-%  {\parbox{\columnwidth}{\section{Introduction}\label{sec:introduction}%
-%  \global\everypar=\everypar}}%
-%  \vspace{-1\baselineskip}\vspace{-\parskip}\par
-%\else
-%  \section{Introduction}\label{sec:introduction}\par
-%\fi
-%
-% Admittedly, this is a hack and may well be fragile, but seems to do the
-% trick for me. Note the need to keep any \label that may be used right
-% after \section in the above as the hack puts \section within a raised box.
+
+\IEEEPARstart {} \LaTeX \space is a typesetting program which was originally designed in the early 1990s for books but is often used today in academic settings to write papers, journals, and tutorials. \LaTeX \space allows almost infinite formatting options and can be used for pretty much anything. That being said, the learning curve for \LaTeX \space is high and just getting started can be time consuming. When writing something like a book or a research paper, this trade-off of initial setup is negligible and worth it for the ability to format documents exactly like you want. 
+
+\subsection{Why Learn \LaTeX}
+At some point either in your professional, academic, or personal life, you will need to format a document in a way that regular "What You See Is What You Get" text editor such as Microsoft Word or Google Docs won't let you do. Alternatively, you might be writing a paper for a journal that requires a specific format. 
+
+\subsection{Why This Tutorial}
+This tutorial will go over the fundamentals of \LaTeX \space and get you situated to write a basic document. It is by no means a complete tutorial and can be used as a 'quick reference' guide anytime that you find yourself writing a document in \LaTeX \space . 
+
+\subsection{Getting Started}
+Getting started with \LaTeX \space can be a difficult. There are options like \href{https://www.overleaf.com/}{Overleaf} that allow you to edit and compile \LaTeX \space directly from your browser. Personally, I do not like these sorts of solutions as they paywall key features such as version control and all your work is dependent on their servers being online. Instead, I strongly suggest downloading \LaTeX \space locally on your computer and creating a Makefile to compile your files into a PDF. A simple installation script and Makefile template on how to do this can be found \href{https://gist.github.com/ankitsxchdeva/1eb2afaad782a92b9a129a9452ae97bb}{here} but are outside the scope of this tutorial. A text editor such as vim or nano can be combined with \LaTeX \space allowing easier navigation of large files. 
 
 
+\section{Creating a .tex file}
+There are a lot of filetypes when compiling a \LaTeX \space document. However, there are only 2 filetypes that we have to concern ourselves with when writing basic documents: .tex (LaTeX Source Document) and .cls (LaTeX Document Class). You can think of the .cls file like a template file. For example this file is being compiled with the IEEEtran.cls file. This tutorial will focus on editing .tex files where all of the content and structure of a document is defined.
 
-% The very first letter is a 2 line initial drop letter followed
-% by the rest of the first word in caps (small caps for compsoc).
-% 
-% form to use if the first word consists of a single letter:
-% \IEEEPARstart{A}{demo} file is ....
-% 
-% form to use if you need the single drop letter followed by
-% normal text (unknown if ever used by IEEE):
-% \IEEEPARstart{A}{}demo file is ....
-% 
-% Some journals put the first two words in caps:
-% \IEEEPARstart{T}{his demo} file is ....
-% 
-% Here we have the typical use of a "T" for an initial drop letter
-% and "HIS" in caps to complete the first word.
+\subsection{Environments}
+Environments in \LaTeX \space are used to format sections of text in specific ways. An environment called \verb|xyz| would start with \verb|\begin{xyz}| and end in \verb|\end{xyz}| with the special environment rules applying to all the text inbetween those tags. There are lots of built-in environments such as \verb|center| which centers all the text or \verb|verbatim| which ignores any reserved characters and prints the texts in monospace font. All documents start and end in the document environment.
 
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE Computer Society journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.7 and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-Be sure to omit this text and insert your own Introduction text for your tutorial.
- 
+\subsection{Reserved Characters}
+There are some reserved characters in \LaTeX \space that introduces 
 
-% Creating a subsection is similar to creating a section and is used with the command \subsection{}.
-
-\subsection{Subsection Heading Here}
-Subsection text here.
-
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
-
-% Creating a subsubsection:
-
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+\section{Sections}
+Creating sections and subsections in \LaTeX \space is super easy and 
 
 
-%----- Additional Features -----------------------------------------------------------------------
 
 \section{Additional Features}
 
@@ -313,3 +186,13 @@ Biography text here.
 %\enlargethispage{-5in}
 
 \end{document}
+
+
+
+% https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions
+% https://www.latex-project.org/about/
+% https://github.com/asilva3/CMPE185/blob/master/LaTeX.pdf
+% https://stackoverflow.com/questions/21577968/how-to-tell-if-homebrew-is-installed-on-mac-os-x
+% https://www.latex-project.org/get/
+%https://www.overleaf.com/learn/latex/Environments
+% https://www.overleaf.com/learn/latex/Code_listing
